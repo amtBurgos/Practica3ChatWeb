@@ -8,9 +8,33 @@ h1 {
 	border-style: solid;
 	border-width: thin;
 	padding: 20px;
-	
 }
 
 #btnEntrar {
 	margin-top: 7px;
+}
+
+#divGeneral {
+	/* display: inline-block; */
+	in: auto;
+}
+
+.divIzquierda {
+	width: auto;
+	float: left;
+	margin-right: 30px;
+}
+
+.divDerecha {
+	width: auto;
+}
+
+.divAbajo {
+	margin-top: 10;
+	float: right;
+}
+
+.divMessageOutput {
+	display: inline-block;
+	float: left;
 }

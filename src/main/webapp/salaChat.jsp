@@ -23,47 +23,59 @@
 <html>
 <head>
 <title>Chat Room</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 <script>
 	//Forzar el refresco del Iframe que muestra los mensajes
-	setInterval(refreshIframe, 3000); // establece el tiempo a 3 seg.
+	setInterval(refreshIframe, 5000); // establece el tiempo a 5 seg.
 	function refreshIframe() { // recarga el iframe de la página
 		frames[0].location.reload(true);
 	}
 </script>
+
 </head>
 <body>
 
 	<h1>
-		Chat Room -	<% out.print(client);%>
+		Chat Room -
+		<%
+		out.print(client);
+	%>
 	</h1>
 
 	<form method="post" action="enviarMensaje.jsp">
-		<div>
-			<p>Mensaje:</p>
-			<textarea rows="4" cols="50" name="mensajeEnviar"></textarea>
+		<div id="divGeneral">
+			<div id="divMensaje" class="divIzquierda">
+				<div>
+					<p>Mensaje:</p>
+					<textarea rows="4" cols="50" name="mensajeEnviar"></textarea>
+				</div>
+				<div class="divAbajo">
+					<input type="reset" value="Borrar"> <input type="submit"
+						value="Enviar">
+					<%
+						String mensaje = request.getParameter("mensajeEnviar");
+						server.enviarMensaje(mensaje, client);
+						//System.out.println("enviando mensaje: " + mensaje);
 
-			<p>Usuario:</p>
-			<input type="text" name="nicknameToBan"><br> <input
-				type="radio" name="banAcction" value="ban">Bloquear<br>
-			<input type="radio" name="banAcction" value="unban">Desbloquear<br>
+						application.setAttribute("servidor", server);
+					%>
+				</div>
+			</div>
+			<div id="divUsuario" class="divDerecha">
+				<p style="padding-top: 16;">Usuario:</p>
+				<input type="text" name="nicknameToBan"><br> <input
+					type="radio" name="banAcction" value="ban">Bloquear<br>
+				<input type="radio" name="banAcction" value="unban">Desbloquear<br>
 
-			<input type="submit" value="Enviar">
-
-			<%
-				String mensaje = request.getParameter("mensajeEnviar");
-				server.enviarMensaje(mensaje, client);
-				//System.out.println("enviando mensaje: " + mensaje);
-
-				application.setAttribute("servidor", server);
-			%>
-
-			<input type="reset" value="Borrar">
-			<a href="logout.jsp">Logout</a>
+				<a href="logout.jsp">Logout</a>
+			</div>
 		</div>
-
-		<p>Chat:</p>
-		<iframe id="messageOutput" width="500" height="350" src="mensajes.jsp"></iframe>
-
+		<br />
+		<div class="divMessageOutput">
+			<p>Chat:</p>
+			<iframe id="messageOutput" width="500" height="350"
+				src="mensajes.jsp"></iframe>
+		</div>
 	</form>
 
 
