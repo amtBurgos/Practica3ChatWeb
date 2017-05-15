@@ -69,4 +69,14 @@ public class ChatClase {
 			}
 		}
 	}
+
+	/**
+	 * Elimina un usuario de la lista.
+	 * 
+	 * @param user
+	 *            usuario
+	 */
+	public void eliminarUsuario(String user) {
+		mensajes.remove(user);
+	}
 }
