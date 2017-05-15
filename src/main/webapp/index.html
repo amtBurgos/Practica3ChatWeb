@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript">
 	function validateNickname() {
-		var nickname = document.getElementById("nickname").value;
+		var nickname = document.getElementById("nickName").value;
 		if (nickname.length == 0 || !nickname.trim() || nickname == null) {
 			alert("Introduce un nombre de usuario");
 		} else {
@@ -19,7 +19,7 @@
 	<h1>Chat Room</h1>
 	<div id="nicknameDiv">
 		<form id="nicknameForm" method="post" action="inicio.jsp">
-			Nickname: <input id="nickname" type="text" name="nickname"><br>
+			Nickname: <input id="nickName" type="text" name="nickName"><br>
 			<input id="btnEntrar" type="button" value="Entrar"
 				onclick="validateNickname()" />
 		</form>

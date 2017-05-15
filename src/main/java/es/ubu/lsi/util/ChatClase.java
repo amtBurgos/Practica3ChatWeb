@@ -5,10 +5,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Clase que implementa el chat
+ * 
+ * @author Andrés Miguel Terán
+ * @author Francisco Saiz Güemes
+ */
 public class ChatClase {
 
+	/**
+	 * HashMap con los mensajes de cada usuario.
+	 */
 	private HashMap<String, List<String>> mensajes = new HashMap<String, List<String>>();
 
+	/**
+	 * Contructor de la clase.
+	 */
 	public ChatClase() {
 
 	}
@@ -22,7 +34,6 @@ public class ChatClase {
 	public void registraUsuario(String usuario) {
 		mensajes.put(usuario, new ArrayList<String>());
 		enviarMensaje("-> El usuario " + usuario + " se ha conectado.", "Admin");
-		//System.out.println("Usuario " + usuario + " registrado");
 	}
 
 	/**
@@ -50,9 +61,8 @@ public class ChatClase {
 		Set<String> usuarios = mensajes.keySet();
 		List<String> listaMensaje = new ArrayList<>();
 		for (String usuario : usuarios) {
-
 			// Comprobamos que el usuario no es igual al emisor del mensaje.
-			if (emisor != usuario) {
+			if (!emisor.equals(usuario)) {
 				listaMensaje = mensajes.get(usuario);
 				listaMensaje.add(mensaje);
 				mensajes.put(usuario, listaMensaje);

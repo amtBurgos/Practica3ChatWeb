@@ -25,7 +25,7 @@
 <title>Chat Room</title>
 <script>
 	//Forzar el refresco del Iframe que muestra los mensajes
-	setInterval(refreshIframe, 5000); // establece el tiempo a 5 seg.
+	setInterval(refreshIframe, 3000); // establece el tiempo a 3 seg.
 	function refreshIframe() { // recarga el iframe de la página
 		frames[0].location.reload(true);
 	}
@@ -34,10 +34,7 @@
 <body>
 
 	<h1>
-		Chat Room -
-		<%
-		out.print(client);
-	%>
+		Chat Room -	<% out.print(client);%>
 	</h1>
 
 	<form method="post" action="enviarMensaje.jsp">
@@ -60,7 +57,8 @@
 				application.setAttribute("servidor", server);
 			%>
 
-			<input type="reset" value="Borrar"> <a href="logout.jsp">Logout</a>
+			<input type="reset" value="Borrar">
+			<a href="logout.jsp">Logout</a>
 		</div>
 
 		<p>Chat:</p>
