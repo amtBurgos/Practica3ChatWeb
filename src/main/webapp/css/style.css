@@ -1,0 +1,16 @@
+h1 {
+	text-align: center;
+}
+
+#nicknameDiv {
+	display: inline-block;
+	text-align: center;
+	border-style: solid;
+	border-width: thin;
+	padding: 20px;
+	
+}
+
+#btnEntrar {
+	margin-top: 7px;
+}
