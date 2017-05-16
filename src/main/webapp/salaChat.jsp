@@ -49,26 +49,44 @@
 					<p>Mensaje:</p>
 					<textarea rows="4" cols="50" name="mensajeEnviar"></textarea>
 				</div>
+
+				<div id="divUsuario" class="divDerecha">
+					<p style="padding-top: 16;">Usuario:</p>
+					<input type="text" name="usuarioToBan"><br> 
+					<input type="radio" name="banAcction" value="banear">Bloquear<br>
+					<input type="radio" name="banAcction" value="desbanear">Desbloquear<br>
+
+					<a href="logout.jsp">Logout</a>
+				</div>
+
 				<div class="divAbajo">
+					<br />
 					<input type="reset" value="Borrar"> <input type="submit"
 						value="Enviar">
 					<%
 						String mensaje = request.getParameter("mensajeEnviar");
-						server.enviarMensaje(mensaje, client);
-						//System.out.println("enviando mensaje: " + mensaje);
+						String usuarioToBan = request.getParameter("usuarioToBan");
+						String banAction = request.getParameter("banAcction");
+
+						if (banAction != null && usuarioToBan != null) {
+							if (banAction.equals("desbanear")) {
+								server.unban(client, usuarioToBan);
+							} else {
+								server.ban(client, usuarioToBan);
+							}
+
+						} else if (mensaje != null) {
+							System.out.println("Enviando mensaje...");
+							server.enviarMensaje(mensaje, client);
+						}
 
 						application.setAttribute("servidor", server);
 					%>
 				</div>
 			</div>
-			<div id="divUsuario" class="divDerecha">
-				<p style="padding-top: 16;">Usuario:</p>
-				<input type="text" name="nicknameToBan"><br> <input
-					type="radio" name="banAcction" value="ban">Bloquear<br>
-				<input type="radio" name="banAcction" value="unban">Desbloquear<br>
 
-				<a href="logout.jsp">Logout</a>
-			</div>
+
+
 		</div>
 		<br />
 		<div class="divMessageOutput">

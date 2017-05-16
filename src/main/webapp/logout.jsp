@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@page import="es.ubu.lsi.util.ChatClase"%>
 <%@page import="java.lang.String"%>
+
 <jsp:useBean id="server" scope="application"
 	class="es.ubu.lsi.util.ChatClase" />
 <jsp:useBean id="client" scope="session" class="java.lang.String" />
