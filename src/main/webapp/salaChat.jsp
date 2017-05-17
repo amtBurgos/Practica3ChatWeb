@@ -61,7 +61,6 @@
 						String banAction = request.getParameter("banAcction");
 
 						if (mensaje != null && !mensaje.equals("") && !(banAction != null && usuarioToBan != null)) {
-							System.out.println("mensaje:" + mensaje + ".");
 							System.out.println("Enviando mensaje...");
 							server.enviarMensaje(mensaje, client);
 						} else if (banAction != null && usuarioToBan != null) {

@@ -40,7 +40,7 @@ public class ChatClase {
 	public void registraUsuario(String usuario) {
 		mensajes.put(usuario, new ArrayList<String>());
 		listaBaneos.put(usuario, new HashSet<String>());
-		enviarMensaje("El usuario \"" + usuario + "\" se ha conectado.", "Admin");
+		enviarMensaje("El usuario \"" + usuario + "\" se ha conectado.", "<em>Admin</em>");
 	}
 
 	/**
@@ -72,11 +72,11 @@ public class ChatClase {
 			//  que el usuario no es igual al emisor del mensaje.
 			if (emisor.equals(usuario)) {
 				listaMensaje = mensajes.get(usuario);
-				listaMensaje.add("> yo: " +  mensaje);
+				listaMensaje.add("> <strong>Yo: </strong>" + mensaje);
 				mensajes.put(usuario, listaMensaje);
 			} else if (!checkIsBanned(usuario, emisor)) {
 				listaMensaje = mensajes.get(usuario);
-				listaMensaje.add("> " + emisor + ": " + mensaje);
+				listaMensaje.add("> " + "<strong>"+emisor+": </strong>" + mensaje);
 				mensajes.put(usuario, listaMensaje);
 			}
 
@@ -90,7 +90,7 @@ public class ChatClase {
 	 *            usuario
 	 */
 	public void eliminarUsuario(String cliente) {
-		enviarMensaje("El usuario \"" + cliente  + "\" se ha desconectado.", "Admin");
+		enviarMensaje("El usuario \"" + cliente  + "\" se ha desconectado.", "<em>Admin</em>");
 		mensajes.remove(cliente);
 	}
 
@@ -107,15 +107,15 @@ public class ChatClase {
 
 		// Comunicamos los baneos al servidor
 		if (baneados.add(userToBan)) {
-			System.out.println(usuario + " ha baneado a " + userToBan + ".");
+			System.out.println("El usuario " + userToBan + " ha sido baneado.");
 			listaMensajes = mensajes.get(usuario);
-			listaMensajes.add(usuario + " ha baneado a " + userToBan + ".");
+			listaMensajes.add("> <em>El usuario " + userToBan + " ha sido baneado.</em>");
 			mensajes.put(usuario, listaMensajes);
 
 		} else {
-			System.out.println(usuario + " ya había baneado a " + userToBan + ".");
+			System.out.println("El usuario " + userToBan + " ya habia sido baneado.");
 			listaMensajes = mensajes.get(usuario);
-			listaMensajes.add(usuario + " ya habia baneado a " + userToBan + ".");
+			listaMensajes.add("> <em>El usuario " + userToBan + " ya habia sido baneado.</em>");
 			mensajes.put(usuario, listaMensajes);
 		}
 
@@ -135,14 +135,14 @@ public class ChatClase {
 		List<String> listaMensajes;
 
 		if (baneados.remove(userToUnban)) {
-			System.out.println(usuario + " ha desbaneado a " + userToUnban + ".");
+			System.out.println("El usuario " + userToUnban + " ha sido desbaneado.");
 			listaMensajes = mensajes.get(usuario);
-			listaMensajes.add(usuario + " ha desbaneado a " + userToUnban + ".");
+			listaMensajes.add("> <em>El usuario " + userToUnban + " ha sido desbaneado.</em>");
 			mensajes.put(usuario, listaMensajes);
 		} else {
-			System.out.println(usuario + " no puede desbanear a " + userToUnban + " porque no está baneado.");
+			System.out.println("El usuario " + userToUnban + " no estaba baneado.");
 			listaMensajes = mensajes.get(usuario);
-			listaMensajes.add(usuario + " no puede desbanear a " + userToUnban + " porque no está baneado.");
+			listaMensajes.add("> <em>El usuario " + userToUnban + " no estaba baneado.</em>");
 			mensajes.put(usuario, listaMensajes);
 		}
 		listaBaneos.put(usuario, baneados);
