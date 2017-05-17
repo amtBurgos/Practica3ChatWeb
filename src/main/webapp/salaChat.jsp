@@ -10,13 +10,6 @@
 		client = request.getParameter("nickName");
 		server.registraUsuario(client);
 		session.setAttribute("client", client);
-	} else if (client.equals("")) {
-%>
-<jsp:forward page="index.html" />
-<%
-	} else {
-		client = (String) session.getAttribute("client");
-		server = (ChatClase) application.getAttribute("server");
 	}
 %>
 
@@ -52,32 +45,31 @@
 
 				<div id="divUsuario" class="divDerecha">
 					<p style="padding-top: 16;">Usuario:</p>
-					<input type="text" name="usuarioToBan"><br> 
-					<input type="radio" name="banAcction" value="banear">Bloquear<br>
+					<input type="text" name="usuarioToBan"><br> <input
+						type="radio" name="banAcction" value="banear">Bloquear<br>
 					<input type="radio" name="banAcction" value="desbanear">Desbloquear<br>
 
 					<a href="logout.jsp">Logout</a>
 				</div>
 
 				<div class="divAbajo">
-					<br />
-					<input type="reset" value="Borrar"> <input type="submit"
-						value="Enviar">
+					<br /> <input type="reset" value="Borrar"> <input
+						type="submit" value="Enviar">
 					<%
 						String mensaje = request.getParameter("mensajeEnviar");
 						String usuarioToBan = request.getParameter("usuarioToBan");
 						String banAction = request.getParameter("banAcction");
 
-						if (banAction != null && usuarioToBan != null) {
+						if (mensaje != null && !mensaje.equals("") && !(banAction != null && usuarioToBan != null)) {
+							System.out.println("mensaje:" + mensaje + ".");
+							System.out.println("Enviando mensaje...");
+							server.enviarMensaje(mensaje, client);
+						} else if (banAction != null && usuarioToBan != null) {
 							if (banAction.equals("desbanear")) {
 								server.unban(client, usuarioToBan);
 							} else {
 								server.ban(client, usuarioToBan);
 							}
-
-						} else if (mensaje != null) {
-							System.out.println("Enviando mensaje...");
-							server.enviarMensaje(mensaje, client);
 						}
 
 						application.setAttribute("servidor", server);
