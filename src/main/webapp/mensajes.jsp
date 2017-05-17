@@ -5,6 +5,6 @@
 	ChatClase server = (ChatClase) application.getAttribute("server");
 	List<String> messages = server.getMensajes(client);
 	for (String message : messages) {
-		out.print("<p>" + message + "</p>");
+		out.print(message + "<br/>");
 	}
 %>
