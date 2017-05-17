@@ -6,14 +6,10 @@
 <jsp:useBean id="client" scope="session" class="java.lang.String" />
 
 <%
-	if (request.getParameter("nickName") != null && server.existeUsuario(request.getParameter("nickName")) == false) {
+	if (request.getParameter("nickName") != null) {
 		client = request.getParameter("nickName");
 		server.registraUsuario(client);
 		session.setAttribute("client", client);
-	} else {
-%>
-<jsp:forward page="index.html" />
-<%
 	}
 %>
 
