@@ -44,11 +44,11 @@
 				</div>
 
 				<div id="divUsuario" class="divDerecha">
-					<p style="padding-top: 16;">Usuario:</p>
-					<input type="text" name="usuarioToBan"><br> <input
-						type="radio" name="banAcction" value="banear">Bloquear<br>
-					<input type="radio" name="banAcction" value="desbanear">Desbloquear<br>
-
+					<p style="padding-top: 16;">
+						Usuario: <input type="text" name="usuarioToBan"><br>
+						<input type="radio" name="banAcction" value="banear">Bloquear<br>
+						<input type="radio" name="banAcction" value="desbanear">Desbloquear<br>
+					</p>
 					<a href="logout.jsp">Logout</a>
 				</div>
 
