@@ -13,7 +13,7 @@
 	}
 %>
 
-<html>
+<html class="htmlCenter">
 <head>
 <title>Chat Room</title>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -26,7 +26,7 @@
 </script>
 
 </head>
-<body style="min-width: 600px;">
+<body>
 
 	<h1>
 		Chat Room -
@@ -71,7 +71,7 @@
 				<input type="text" name="usuarioToBan"> <br> <input
 					type="radio" name="banAcction" value="banear">Bloquear<br>
 				<input type="radio" name="banAcction" value="desbanear">Desbloquear<br>
-				<br> <a href="logout.jsp" class="logout" >Logout</a>
+				<br> <a href="logout.jsp" class="logout">Logout</a>
 			</div>
 		</div>
 		<br>
@@ -81,7 +81,6 @@
 				src="mensajes.jsp"></iframe>
 		</div>
 	</form>
-
 
 </body>
 </html>

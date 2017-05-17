@@ -11,7 +11,7 @@ h1 {
 }
 
 #btnEntrar {
-	margin-top: 7px;
+	margin-top: 9px;
 }
 
 #divGeneral {
@@ -41,4 +41,10 @@ h1 {
 
 .logout {
 	margin-left: 126px;
+}
+
+.htmlCenter {
+	display: table;
+	height: 30%;
+	margin: auto;
 }
