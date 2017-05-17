@@ -6,17 +6,24 @@
 <jsp:useBean id="client" scope="session" class="java.lang.String" />
 
 <%
-	if (request.getParameter("nickName") != null) {
+	if (request.getParameter("nickName") != null && server.existeUsuario(request.getParameter("nickName")) == false) {
 		client = request.getParameter("nickName");
 		server.registraUsuario(client);
 		session.setAttribute("client", client);
+	} else {
+%>
+<jsp:forward page="index.html" />
+<%
 	}
 %>
 
 <html>
 <head>
 <title>Chat Room</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<!--  Hoja de stilos css. -->
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+
 <script>
 	//Forzar el refresco del Iframe que muestra los mensajes
 	setInterval(refreshIframe, 5000); // establece el tiempo a 5 seg.
@@ -40,7 +47,7 @@
 			<div id="divMensaje" class="divIzquierda">
 				<div>
 					<p>Mensaje:</p>
-					<textarea rows="4" cols="50" name="mensajeEnviar"></textarea>
+					<textarea rows="4" cols="50" name="mensajeEnviar" autofocus></textarea>
 				</div>
 
 				<div id="divUsuario" class="divDerecha">
