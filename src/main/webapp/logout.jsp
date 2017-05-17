@@ -15,7 +15,7 @@
 <body>
 	<%
 		client = (String) session.getAttribute("client");
-		System.out.println(client);
+		System.out.println("El cliente '" + client + "' se desconectará.");
 		server.eliminarUsuario(client);
 		session.invalidate();
 	%>

@@ -16,7 +16,7 @@
 <html>
 <head>
 <title>Chat Room</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 <script>
 	//Forzar el refresco del Iframe que muestra los mensajes
 	setInterval(refreshIframe, 5000); // establece el tiempo a 5 seg.
@@ -61,7 +61,7 @@
 						String banAction = request.getParameter("banAcction");
 
 						if (mensaje != null && !mensaje.equals("") && !(banAction != null && usuarioToBan != null)) {
-							System.out.println("Enviando mensaje...");
+							System.out.println(">" + client + ": " + mensaje);
 							server.enviarMensaje(mensaje, client);
 						} else if (banAction != null && usuarioToBan != null) {
 							if (banAction.equals("desbanear")) {

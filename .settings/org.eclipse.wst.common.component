@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
         <property name="java-output-path" value="/Practica3ChatWeb/target/classes"/>
-        <property name="context-root" value="Practica3ChatWebAndres"/>
+        <property name="context-root" value="Practica3ChatWeb"/>
     </wb-module>
 </project-modules>
