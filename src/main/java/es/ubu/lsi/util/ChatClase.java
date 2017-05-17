@@ -54,6 +54,16 @@ public class ChatClase {
 
 		return mensajes.get(usuario);
 	}
+	
+	/**
+	 * Comprueba si ya existe el usuario. 
+	 * 
+	 * @param usuario nombre de usuario
+	 * @return boolean
+	 */
+	public boolean existeUsuario(String usuario){
+		return mensajes.keySet().contains(usuario);
+	}
 
 	/**
 	 * Envia mensaje a todos los usuarios.

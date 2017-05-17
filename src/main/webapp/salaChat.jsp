@@ -16,7 +16,14 @@
 <html class="htmlCenter">
 <head>
 <title>Chat Room</title>
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="./css/style.css">
+=======
+
+<!--  Hoja de stilos css. -->
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+>>>>>>> refs/remotes/origin/master
 <script>
 	//Forzar el refresco del Iframe que muestra los mensajes
 	setInterval(refreshIframe, 5000); // establece el tiempo a 5 seg.
@@ -40,7 +47,7 @@
 			<div id="divMensaje" class="divIzquierda">
 				<div>
 					<p>Mensaje:</p>
-					<textarea rows="4" cols="50" name="mensajeEnviar"></textarea>
+					<textarea rows="4" cols="50" name="mensajeEnviar" autofocus></textarea>
 				</div>
 
 				<div class="divAbajo">
