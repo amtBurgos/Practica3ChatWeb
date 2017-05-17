@@ -13,13 +13,17 @@
 	}
 %>
 
-<html>
+<html class="htmlCenter">
 <head>
 <title>Chat Room</title>
+<<<<<<< HEAD
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+=======
 
 <!--  Hoja de stilos css. -->
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 
+>>>>>>> refs/remotes/origin/master
 <script>
 	//Forzar el refresco del Iframe que muestra los mensajes
 	setInterval(refreshIframe, 5000); // establece el tiempo a 5 seg.
@@ -46,25 +50,16 @@
 					<textarea rows="4" cols="50" name="mensajeEnviar" autofocus></textarea>
 				</div>
 
-				<div id="divUsuario" class="divDerecha">
-					<p style="padding-top: 16;">
-						Usuario: <input type="text" name="usuarioToBan"><br>
-						<input type="radio" name="banAcction" value="banear">Bloquear<br>
-						<input type="radio" name="banAcction" value="desbanear">Desbloquear<br>
-					</p>
-					<a href="logout.jsp">Logout</a>
-				</div>
-
 				<div class="divAbajo">
-					<br /> <input type="reset" value="Borrar"> <input
-						type="submit" value="Enviar">
+					<input type="reset" value="Borrar"> <input type="submit"
+						value="Enviar">
 					<%
 						String mensaje = request.getParameter("mensajeEnviar");
 						String usuarioToBan = request.getParameter("usuarioToBan");
 						String banAction = request.getParameter("banAcction");
 
 						if (mensaje != null && !mensaje.equals("") && !(banAction != null && usuarioToBan != null)) {
-							System.out.println("Enviando mensaje...");
+							System.out.println(">" + client + ": " + mensaje);
 							server.enviarMensaje(mensaje, client);
 						} else if (banAction != null && usuarioToBan != null) {
 							if (banAction.equals("desbanear")) {
@@ -78,18 +73,21 @@
 					%>
 				</div>
 			</div>
-
-
-
+			<div id="divUsuario" class="divDerecha">
+				<p style="padding-top: 16;">Usuario:</p>
+				<input type="text" name="usuarioToBan"> <br> <input
+					type="radio" name="banAcction" value="banear">Bloquear<br>
+				<input type="radio" name="banAcction" value="desbanear">Desbloquear<br>
+				<br> <a href="logout.jsp" class="logout">Logout</a>
+			</div>
 		</div>
-		<br />
+		<br>
 		<div class="divMessageOutput">
 			<p>Chat:</p>
-			<iframe id="messageOutput" width="500" height="350"
+			<iframe id="messageOutput" width="572" height="350"
 				src="mensajes.jsp"></iframe>
 		</div>
 	</form>
-
 
 </body>
 </html>

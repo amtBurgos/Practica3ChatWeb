@@ -11,7 +11,7 @@ h1 {
 }
 
 #btnEntrar {
-	margin-top: 7px;
+	margin-top: 9px;
 }
 
 #divGeneral {
@@ -37,4 +37,14 @@ h1 {
 .divMessageOutput {
 	display: inline-block;
 	float: left;
+}
+
+.logout {
+	margin-left: 126px;
+}
+
+.htmlCenter {
+	display: table;
+	height: 30%;
+	margin: auto;
 }
