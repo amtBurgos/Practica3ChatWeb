@@ -16,20 +16,12 @@
 <html class="htmlCenter">
 <head>
 <title>Chat Room</title>
-<<<<<<< HEAD
-<link rel="stylesheet" type="text/css" href="./css/style.css">
-=======
-
 <!--  Hoja de stilos css. -->
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-
->>>>>>> refs/remotes/origin/master
+<script type="text/javascript" src="./js/funciones.js"></script>
 <script>
 	//Forzar el refresco del Iframe que muestra los mensajes
 	setInterval(refreshIframe, 5000); // establece el tiempo a 5 seg.
-	function refreshIframe() { // recarga el iframe de la página
-		frames[0].location.reload(true);
-	}
 </script>
 
 </head>
